@@ -7,19 +7,19 @@ const TodoList = ({ token }) => {
 
   useEffect(() => {
     const fetchTodos = async () => {
-      const response = await axios.get('http://localhost:3008/api/todos', { headers: { Authorization: `Bearer ${token}` } });
+      const response = await axios.get('https://calw.onrender.com/api/todos', { headers: { Authorization: `Bearer ${token}` } });
       setTodos(response.data);
     };
     fetchTodos();
   }, [token]);
 
   const handleUpdate = async (id, updatedTodo) => {
-    await axios.put(`http://localhost:3008/api/todos/${id}`, updatedTodo, { headers: { Authorization: `Bearer ${token}` } });
+    await axios.put(`https://calw.onrender.com/api/todos/${id}`, updatedTodo, { headers: { Authorization: `Bearer ${token}` } });
     setTodos(todos.map(todo => (todo._id === id ? { ...todo, ...updatedTodo } : todo)));
   };
 
   const handleDelete = async id => {
-    await axios.delete(`http://localhost:3008/api/todos/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+    await axios.delete(`https://calw.onrender.com/api/todos/${id}`, { headers: { Authorization: `Bearer ${token}` } });
     setTodos(todos.filter(todo => todo._id !== id));
   };
 

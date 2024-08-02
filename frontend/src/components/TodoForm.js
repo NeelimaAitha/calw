@@ -5,7 +5,7 @@ const TodoForm = ({ token, setTodos }) => {
   const [title, setTitle] = useState('');
 
   const handleAddTodo = async () => {
-    const response = await axios.post('/api/todos', { title }, { headers: { Authorization: `Bearer ${token}` } });
+    const response = await axios.post('https://calw.onrender.com/api/todos', { title }, { headers: { Authorization: `Bearer ${token}` } });
     setTodos(prevTodos => [...prevTodos, response.data]);
     setTitle('');
   };

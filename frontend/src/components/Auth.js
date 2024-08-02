@@ -8,7 +8,7 @@ const Auth = ({ setToken }) => {
   const [isLogin, setIsLogin] = useState(true);
 
   const handleAuth = async () => {
-    const url = isLogin ? 'http://localhost:3008/api/auth/login' : 'http://localhost:3008/api/auth/register';
+    const url = isLogin ? 'https://calw.onrender.com/api/auth/login' : 'https://calw.onrender.com/api/auth/register';
     try {
       const response = await axios.post(url, { email, password });
       if (isLogin) setToken(response.data.token);
